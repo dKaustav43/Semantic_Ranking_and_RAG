@@ -1,4 +1,10 @@
+[
 {
-    "model_1" : "llama3.1:8b",
-    "model_2" : "granite4:tiny-h"
+    "model" : "llama3.1:8b",
+    "use": "Text summarisation"
+},
+{
+    "model" : "granite4:tiny-h",
+    "use": "Text summarisation"
 }
+]
