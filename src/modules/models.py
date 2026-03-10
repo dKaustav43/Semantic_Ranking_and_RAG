@@ -4,6 +4,7 @@ from sqlmodel import Field, SQLModel, Relationship
 class Models(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     model: str
+    use: str | None = Field(default=None)
 
     outputs: list["Outputs"] = Relationship(back_populates="models")
 
