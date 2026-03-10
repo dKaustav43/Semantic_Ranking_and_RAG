@@ -4,9 +4,9 @@ from ollama import generate
 from modules.database import engine, create_db_and_tables
 from modules.models import Models, Prompts, Outputs
 
-#Json_load's
+#Json_load
 with open("data/llm_models.json", mode="r", encoding="utf-8") as read_file:
-        llm_models_dict = json.load(read_file)
+        llm_models_list = json.load(read_file)
 with open("data/text_and_prompts.json", mode="r", encoding="utf-8") as read_file:
         prompts_data_dict = json.load(read_file)
 
@@ -15,21 +15,25 @@ def create_model_and_prompts():
 
     #Creating session and adding data
     with Session(engine) as session:
-        #add llm_model data
-        for llm_model_name in llm_models_dict.values():
-            llm_entry = Models(model=llm_model_name)
-            session.add(llm_entry)
+        for llm_model in llm_models_list:   
+            existing = session.exec(select(Models).where(Models.model == llm_model["model"])).one_or_none()
+            if not existing:
+                new_model_entry = Models(model=llm_model["model"],use=llm_model["use"])
+                session.add(new_model_entry)
+            else:
+                existing.use = llm_model["use"]
+                session.add(existing)
         session.commit()
 
         #add prompt_model data
         for prompt_text in prompts_data_dict.values():
-            entry_prompt_text = Prompts(prompt=prompt_text)
-            session.add(entry_prompt_text)
-            #output_entry_prompt_id = Outputs(prompt_id=entry.id)
-            #session.add(output_entry_prompt_id)
+            existing = session.exec(select(Prompts).where(Prompts.prompt == prompt_text)).one_or_none()
+            if not existing:
+                entry_prompt_text = Prompts(prompt=prompt_text)
+                session.add(entry_prompt_text)
         session.commit()
 
-#generate summaries and add them to the table
+#generate summaries using models and prompts in Ollama and add them to the table
 def create_outputs():
     with Session(engine) as session:
         
@@ -44,7 +48,7 @@ def create_outputs():
         
         # add outputs data
         for prompt in prompts_data_dict.values():
-            for llm_model in llm_models_dict.values(): 
+            for llm_model in llm_models_list.values(): 
                 response = generate(llm_model,prompt)
                 text_summarisation_entry = Outputs(output=str(response),
                                                    models=models_table_data_lookup[llm_model],
@@ -55,17 +59,18 @@ def create_outputs():
 def select_model():
      with Session(engine) as session:
           models = session.exec(select(Models)).all()
-          model_names = []
+          model_table = []
           for m in models:
-               model_names.append(m.model)
-     return model_names  
+               model_table.append(m)
+     return model_table
                
                     
 def main():
     # create_db_and_tables()
-    # create_model_and_prompts()
+    #create_model_and_prompts()
     # create_outputs()
-    model_names = select_model()
+    model_table: list[object] = select_model()
+    print(model_table)
     #now i can open a file and write to it. Or even to external applications.
 
 if __name__ == "__main__":
