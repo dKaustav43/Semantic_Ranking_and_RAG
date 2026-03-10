@@ -1,0 +1,4 @@
+{
+    "model_1" : "llama3.1:8b",
+    "model_2" : "granite4:tiny-h"
+}

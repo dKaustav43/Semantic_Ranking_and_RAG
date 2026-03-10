@@ -1,0 +1,55 @@
+Reponse from llama3.1:8b for prompt_1
+Here is a 150-word summary of the case study:
+
+The MyWorld programme, led by the University of Bristol and backed by UKRI, aimed to accelerate AI innovation in the West of England's creative industries.
+Digital Catapult was a partner in the consortium, which included prominent creative organisations such as Aardman and the BBC.
+The programme provided access to world-class facilities, funding, research, tools, and training to support the region's creative industries.
+Digital Catapult delivered four open calls, including two challenge-led accelerators and two collaborative research and development programmes.
+While only one call specifically addressed AI, its use played a part in all four calls.
+The outcome of the project was increased innovation and growth in the creative industries, with potential to drive societal change and strengthen the region's position as a centre for cutting-edge development.
+
+Reponse from granite4:tiny-h for prompt_1
+The MyWorld programme, led by the University of Bristol and backed by UKRI, aims to accelerate AI innovation in the West of England creative industries.
+As part of the UK's Modern Industrial Strategy, this initiative focuses on integrating AI with creative skills to boost productivity, creativity, and market reach.
+The comprehensive Sector Plan for Creative Industries aims to position the UK as the best place to make and invest in film and TV, video games, music, performing and visual arts, and advertising and marketing.
+The MyWorld programme is a consortium of 13 partners, including universities, relevant creative organizations, and Digital Catapult, which delivered four open calls featuring challenges and collaborative research and development programmes.
+The use of AI was prevalent throughout the programme, contributing to growth, societal change, and strengthening the region's position as a center for cutting-edge development.
+
+Reponse from llama3.1:8b for prompt_2
+Here is a 150-word summary of the case study:
+
+MTC developed an AI-driven sorting system for nuclear decommissioning waste with support from the UK's Digital Catapult and funding from the Small Business Research Initiative (SBRI).
+The system uses AI vision systems to identify waste objects, and a measurement and sorting system to stream objects to output containers.
+The outcome is an intelligent system that identifies individual waste items, picks them up with an appropriate gripper, and provides a traceable data record for each sorted object.
+The impact is significant, reducing human manual sorting tasks in a high-risk environment and enabling improved sorting and segregation of nuclear waste.
+The system also enables the creation of a digital dataset for each object, including images, measurements, and radiological and chemical data.
+This project demonstrates the potential for technology to improve safety and efficiency in the nuclear industry.
+
+Reponse from granite4:tiny-h for prompt_2
+The Intelligent Handling System Design and Integration project, funded by the SBRI, was developed by MTC to create an AI-driven sorting system for separating intermediate and low-level nuclear decommissioning waste.
+The aim was to develop a prototype system using autonomous robotics, AI vision systems, and measurement systems to sort radioactive waste safely and efficiently, reducing human intervention and improving packaging processes.
+The project resulted in an intelligent system that identifies waste items using vision systems, picks up objects with appropriate grippers, and generates traceable data records with every sorted object.
+The developed solution allows for improved sorting and segregation of nuclear waste, ensuring proper classification and management in a safe manner, while reducing waste storage costs.
+This project received support from various government departments and had an international impact on nuclear decommissioning waste management.
+
+Reponse from llama3.1:8b for prompt_3
+Here is a summary of the case study in 150 words:
+
+CPI and SLN Sustainability collaborated with the Design for Sustainability and Circularity (DfSC) framework to redesign a toddler's water bottle.
+The project aimed to balance safety, functionality, and sustainability from the start.
+Using a data-driven approach, the team selected materials based on drinking water safety, impact resistance, manufacturability, and environmental performance.
+A Life Cycle Assessment (LCA) was integrated early to evaluate environmental impacts against planetary boundaries.
+The final concept minimized material variety, using only two components, reducing production waste and simplifying end-of-life processes.
+The project demonstrated that sustainability can be embedded from the outset, and that it can be a powerful enabler of function, form, and future resilience.
+The outcome was a proof-of-concept bottle with a lower environmental impact, challenging common assumptions about eco-friendly materials.
+The project was funded by Innovate UK Business Growth and HVM Catapult.
+
+Reponse from granite4:tiny-h for prompt_3
+CPI and SLN Sustainability Ltd.
+partnered to redesign a toddler water bottle using the Design for Sustainability and Circularity (DfSC) framework.
+The project aimed to create a safe, functional, and sustainable product by taking a data-driven approach to material selection and incorporating Life Cycle Assessment (LCA) early in the development process.
+The team explored three material concepts and chose a recycled plastic concept that had a lower environmental impact compared to a bio-based polymer.
+The project resulted in a proof-of-concept bottle that balanced safety, functionality, and sustainability, demonstrating that sustainability can be an enabler of function, form, and future resilience.
+This approach provides a blueprint for embedding sustainability from the start, reducing harm, and reimagining product conception.
+The project was funded by Innovate UK Business Growth and HVM Catapult.
+
