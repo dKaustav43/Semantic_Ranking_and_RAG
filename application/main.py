@@ -8,7 +8,7 @@ from modules.models import Models, Prompts, Outputs
 with open("data/llm_models.json", mode="r", encoding="utf-8") as read_file:
         llm_models_list = json.load(read_file)
 with open("data/text_and_prompts.json", mode="r", encoding="utf-8") as read_file:
-        prompts_data_dict = json.load(read_file)
+        prompts_data_list = json.load(read_file)
 
 #add data to the tables
 def create_model_and_prompts():
@@ -23,10 +23,10 @@ def create_model_and_prompts():
         session.commit()
 
         #add prompt_model data
-        for prompt_text in prompts_data_dict.values():
-            existing = session.exec(select(Prompts).where(Prompts.prompt == prompt_text)).one_or_none()
+        for prompt_text in prompts_data_list:
+            existing = session.exec(select(Prompts).where(Prompts.prompt == prompt_text["prompt"])).one_or_none()
             if not existing:
-                entry_prompt_text = Prompts(prompt=prompt_text)
+                entry_prompt_text = Prompts(prompt=prompt_text["prompt"])
                 session.add(entry_prompt_text)
         session.commit()
 
@@ -44,7 +44,7 @@ def create_outputs():
         prompts_table_data_lookup = {p.prompt : p for p in prompts_table_data}
         
         # add outputs data
-        for prompt in prompts_data_dict.values():
+        for prompt in prompts_data_list.values():
             for llm_model in llm_models_list.values(): 
                 response = generate(llm_model,prompt)
                 text_summarisation_entry = Outputs(output=str(response),
