@@ -37,19 +37,19 @@ def create_outputs():
         #creating lookup table's to link the tables
         models_table_data = session.exec(select(Models)).all()
         #lookup table with {model_name:model_object} for using relationship attribute
-        models_table_data_lookup = {m.model : m for m in models_table_data}
+        #models_table_data_lookup = {m.model : m for m in models_table_data}
 
         prompts_table_data = session.exec(select(Prompts)).all()
         #lookup table with {prompt: prompt_object}
-        prompts_table_data_lookup = {p.prompt : p for p in prompts_table_data}
+        #prompts_table_data_lookup = {p.prompt : p for p in prompts_table_data}
         
         # add outputs data
-        for prompt in prompts_data_list.values():
-            for llm_model in llm_models_list.values(): 
-                response = generate(llm_model,prompt)
+        for prompt in prompts_table_data:
+            for llm_model in models_table_data: 
+                response = generate(llm_model.model,prompt.prompt)
                 text_summarisation_entry = Outputs(output=str(response),
-                                                   models=models_table_data_lookup[llm_model],
-                                                   prompts=prompts_table_data_lookup[prompt])
+                                                   models=llm_model,
+                                                   prompts=prompt)
                 session.add(text_summarisation_entry)
         session.commit()
 
@@ -63,7 +63,6 @@ def select_model():
                
                     
 def main():
-    # create_db_and_tables()
     #create_model_and_prompts()
     # create_outputs()
     model_table: list[object] = select_model()
