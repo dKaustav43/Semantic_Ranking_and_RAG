@@ -39,14 +39,17 @@ def create_outputs():
         # add outputs data
         for prompt in prompts_table_data:
             for llm_model in models_table_data: 
-                response = generate(llm_model.model,prompt.prompt)
-                text_summarisation_entry = Outputs(output=str(response),
-                                                   models=llm_model,
-                                                   prompts=prompt)
-                session.add(text_summarisation_entry)
-                print(f"Done: {llm_model.model}")
+                existing = session.exec(select(Outputs).where(Outputs.model_id == llm_model.id).where(Outputs.prompt_id == prompt.id)).one_or_none()
+                if not existing:
+                    response = generate(llm_model.model,prompt.prompt)
+                    text_summarisation_entry = Outputs(output=str(response),
+                                                    models=llm_model,
+                                                    prompts=prompt)
+                    session.add(text_summarisation_entry)
+                    print(f"Done: {llm_model.model}")
         session.commit()
 
+#Reading model table
 def select_model():
      with Session(engine) as session:
           models = session.exec(select(Models)).all()
@@ -54,11 +57,26 @@ def select_model():
           for m in models:
                model_table.append(m)
      return model_table
-               
+
+#updating the outputs table with only the response object and nothing else
+def update_outputs():
+     with Session(engine) as session:
+        models_table_data = session.exec(select(Models)).all()
+        prompts_table_data = session.exec(select(Prompts)).all()
+        
+        for prompt in prompts_table_data:
+            for llm_model in models_table_data: 
+                response = generate(llm_model.model,prompt.prompt)
+                outputs_table = session.exec(select(Outputs).where(Outputs.model_id == llm_model.id).where(Outputs.prompt_id == prompt.id)).one()
+                outputs_table.output = str(response.response) 
+                session.add(outputs_table)
+                print(f"Done: {llm_model.model}")
+        session.commit()
+
                     
 def main():
-    create_model_and_prompts()
-    create_outputs()
+    #create_outputs()
+    update_outputs()
 
 if __name__ == "__main__":
     main()
