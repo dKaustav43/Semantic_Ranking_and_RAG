@@ -1,0 +1,75 @@
+Reponse from llama3.1:8b for prompt_1
+Here is a summary of the case study in 150 words:
+
+The MyWorld programme, led by the University of Bristol and backed by UKRI, aimed to accelerate AI innovation in the West of England's creative industries.
+Digital Catapult was a consortium partner, delivering four open calls to support the development of new ideas, products, and processes.
+These calls included two challenge-led accelerators and two collaborative research and development programmes.
+While only one call specifically addressed AI, its use was a key component in all four calls.
+The programme provided access to world-class facilities, funding, research, tools, and training to 13 partners, including Aardman and the BBC.
+The outcome of the project was to stimulate growth, drive societal change, and strengthen the region's position as a centre for cutting-edge development.
+The impact of the project was significant, with the West of England region benefiting from increased innovation and investment in creative technologies.
+
+Reponse from granite4:tiny-h for prompt_1
+The MyWorld program, led by the University of Bristol and supported by UKRI, focuses on accelerating AI innovation in the West of England's creative industries.
+The program aims to enhance productivity, creativity, and market reach by integrating AI with creative skills, contributing to the UK's £124 billion creative sector and 2.4 million jobs.
+By providing access to world-class facilities, funding, research, tools, and training, MyWorld unites prominent partners from academia and industry, including Aardman, the BBC, and Digital Catapult.
+The consortium includes 13 partners from across the region, fostering collaborations between SMEs and academic counterparts to experiment with new applications of advanced technology.
+Digital Catapult played a crucial role by delivering four open calls, enabling early-stage prototype development and experimentation with advanced technology in the creative industries.
+AI played a significant part in all calls, allowing the program to build on previous results and increase its impact.
+
+Reponse from llama3.1:8b for prompt_2
+Here is a 150-word summary of the case study:
+
+MTC, a company based in the UK, developed an AI-driven sorting system for separating nuclear waste with the support of Digital Catapult's Small Business Research Initiative (SBRI) and in collaboration with the UK's Nuclear Decommissioning Authority.
+The system uses computer vision, grasp planning algorithms, and object measurement to autonomously sort radioactive waste with minimal human intervention.
+The solution includes a custom user interface, multi-camera vision software, and bin packing algorithms to optimize output container space.
+The intelligent system can identify individual waste items, record data for each object, and provide a traceable digital data set.
+The outcome is a more efficient and safe process for sorting nuclear waste, reducing storage capacity requirements and costs.
+The project has the potential to improve the management of nuclear waste in the UK and internationally, and has been recognized for its contribution to the UK's nuclear decommissioning efforts.
+
+Reponse from granite4:tiny-h for prompt_2
+The Small Business Research Initiative (SBRI) funded project aimed to develop an intelligent sorting system for separating intermediate and low-level nuclear decommissioning waste.
+MTC developed an AI-driven system using computer vision, machine learning, and robotic automation to autonomously identify, measure, and sort radioactive waste items.
+The project involved creating a prototype system with a robot handling system, AI vision systems, and a measurement and sorting system.
+The system's outcome was an intelligent system that identifies individual waste items using its vision system, picks up waste objects with appropriate grippers, and provides traceable data records for every sorted object.
+The efficient packing algorithm maximizes the use of output containers for safe processing or storage.
+The solution's impact includes reduction or elimination of human manual sorting tasks in high-risk environments, enhanced performance through machine learning, and traceable data sets for improved sorting and segregation of nuclear waste, ultimately reducing waste storage costs and ensuring appropriate classification and management of waste streams.
+The project involved collaboration between MTC and various government departments, benefiting both the UK and international sectors.
+
+Reponse from llama3.1:8b for prompt_3
+Here is a 150-word summary of the case study:
+
+CPI and SLN Sustainability worked together to redesign a toddler water bottle using the Design for Sustainability and Circularity (DfSC) framework, developed by the High Value Manufacturing Catapult.
+The project aimed to balance safety, functionality, and sustainability from the start.
+The team took a data-driven approach to material selection, considering drinking water safety, impact resistance, and environmental performance.
+Life Cycle Assessment (LCA) was integrated early to evaluate environmental impacts.
+The final concept minimised material variety and simplified end-of-life processes.
+The outcome was a proof-of-concept bottle that balanced safety, functionality, and sustainability.
+The project demonstrated that sustainability can be embedded from the outset and offered a blueprint for designers and engineers to reduce harm and reimagine product conception.
+Funded by Innovate UK and the HVM Catapult, the project has a positive impact on the UK's manufacturing sector and aligns with the government's sustainability goals.
+
+Reponse from granite4:tiny-h for prompt_3
+CPI and SLN Sustainability redesigned a toddler water bottle using the Design for Sustainability and Circularity (DfSC) framework developed by the High Value Manufacturing Catapult, funded by Innovate UK Business Growth.
+The project aimed to create a safe, functional, and sustainable product from the start, addressing the inefficiencies of traditional consumer goods design.
+By applying a data-driven approach to material selection and integrating Life Cycle Assessment (LCA) early in the process, CPI and SLN Sustainability Ltd explored three material concepts: bio-based polymer, metal, and recycled plastic.
+The final concept used just two components—a rigid polymer and an elastomer—to minimize material variety and simplify end-of-life processes, resulting in a proof-of-concept bottle that balanced safety, functionality, and sustainability.
+The recycled plastic option demonstrated a lower overall environmental impact compared to bio-based polymer, challenging common assumptions about eco-friendly materials.
+This project illustrates how sustainability can be embedded from the outset, offering a blueprint for reducing harm and reimagining product conception through science-based approaches.
+
+Reponse from llama3.1:8b for prompt_4
+Here is a 150-word summary of the case study:
+
+Material Index, a UK startup, is transforming the construction industry's circular economy by turning waste into assets and reducing virgin resource extraction.
+Through their proprietary platform, they conduct pre-demolition audits and maintain passports for the exchange of reusable materials.
+With the support of Digital Catapult's High Growth AI Accelerator, they focused on integrating AI to streamline the identification and categorisation of building materials, enhancing the reuse process and making it commercially viable at scale.
+Digital Catapult's technologists provided mentorship, targeted guidance, and technical insights to help the team build an early prototype and define the scope of their solution.
+The outcome of the project is an AI-powered platform that can match and exchange recovered materials with trade partners, leading to significant efficiency and quality gains.
+This innovation has the potential to reduce waste, lower carbon emissions, and save costs in the construction industry.
+
+Reponse from granite4:tiny-h for prompt_4
+Material Index, a UK startup, is revolutionizing the circular economy within the construction sector by transforming waste into assets, enabling the seamless cataloguing and exchange of reusable materials.
+The company's proprietary platform conducts BREEAM-compliant pre-demolition audits, reducing costs, waste, and carbon emissions across the construction lifecycle.
+Through a partnership with Digital Catapult's High Growth AI Accelerator, Material Index harnessed the power of AI to streamline the identification and categorization of building materials.
+This initiative, supported by Digital Catapult's guidance and mentorship, enabled Material Index to focus on image-based AI models, enhancing the efficiency and commercial viability of material reuse.
+By overcoming knowledge gaps in data science and building a robust minimum viable product, Material Index successfully translated early AI integration ideas into practical development, contributing to a more sustainable and cost-effective construction sector.
+
