@@ -106,3 +106,25 @@ This approach offers a blueprint for how designers and engineers can both reduce
 
 Funded by Innovate UK Business Growth and HVM Catapult. 
 """
+
+prompt_4 = """
+Can you please summarise the following case study from Digital Catapult, UK
+in 150 words. 
+
+- No need to include the title.
+- Include Catapult support, the outcome and impact of the project if described. 
+- Include government departments if in the case study.
+- Include company name if mentioned.
+- Include region and international information if mentioned.
+
+[Text]
+Material Index uses AI to boost construction’s circular economy
+
+Increasing prices and persistent shortages of materials are putting the construction industry under mounting pressure. Although the latest UK statistics on waste show a 94.3% rate of recovery for non-hazardous construction and demolition waste in 2022, most of this comes from recycling and backfilling – direct reuse of materials is extremely limited. Material Index is a UK startup that is transforming the circular economy within the construction sector by turning waste into assets, unlocking reuse at scale to extend the life of high-value materials and reducing the need for virgin resource extraction. This approach cuts costs, reduces waste, and lowers carbon emissions across the construction lifecycle. 
+Through a proprietary platform, Material Index conducts BREEAM-compliant pre-demolition audits and maintains passports for the seamless cataloguing and exchange of reusable materials.  
+
+Material Index took part in the High Growth AI Accelerator delivered by Digital Catapult for BridgeAI, an Innovate UK programme. The team had already developed a strong foundation for their core value proposition, and the accelerator presented them with a timely opportunity to translate early ideas for AI integration into practical development.  
+
+The team’s focus was on how AI could be used to streamline the process of identifying and categorising building materials. They saw artificial intelligence (AI) as a way to enhance how recovered materials could be matched and exchanged with trade partners for their clients, making the reuse process more efficient and commercially viable at scale, which could lead to significant efficiency and quality gains.  
+
+Digital Catapult’s support enabled the team to focus on image-based AI models. Although the Material Index team had strong software development expertise and a growing interest in AI, they did not have a background in data science. Digital Catapult’s technologists helped Material Index to bridge that knowledge gap through mentorship, targeted guidance, technical insights, and by providing a sounding board to validate early ideas. This support was essential in enabling the Material Index team to critically refine their approach and build a roadmap to production, avoiding common pitfalls and focusing on the most viable use cases. In combination with the benefit of cloud credits, this valuable support enabled Material Index to build an early prototype, define the scope of the solution, and lay the groundwork for a robust minimum viable product (MVP). 
