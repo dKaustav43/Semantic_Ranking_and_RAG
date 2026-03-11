@@ -3,6 +3,7 @@ import json
 from ollama import generate
 from modules.database import engine, create_db_and_tables
 from modules.models import Models, Prompts, Outputs
+import re
 
 #Json_load
 with open("data/llm_models.json", mode="r", encoding="utf-8") as read_file:
@@ -58,6 +59,21 @@ def select_model():
                model_table.append(m)
      return model_table
 
+#Read outputs and write to a .txt file
+def select_outputs():
+     with Session(engine) as session:
+        outputs = session.exec(select(Outputs)).all()
+        def add_newlines_after_period(text):
+            # Replace '. ' with '.\n'
+            return re.sub(r'\. ', '.\n', text)
+        
+        for o in outputs:
+            with open("data/outputs.txt",'a') as file:
+                first_line = f"Reponse from {o.models.model} for prompt_{o.prompt_id}" # pyright: ignore[reportOptionalMemberAccess]
+                output_edited = add_newlines_after_period(str(o.output))
+                file.write(first_line + '\n' + output_edited + '\n\n')
+        print("outputs appended")
+
 #updating the outputs table with only the response object and nothing else
 def update_outputs():
      with Session(engine) as session:
@@ -76,7 +92,8 @@ def update_outputs():
                     
 def main():
     #create_outputs()
-    update_outputs()
+    #update_outputs()
+    select_outputs()
 
 if __name__ == "__main__":
     main()
