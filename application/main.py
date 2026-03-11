@@ -33,16 +33,9 @@ def create_model_and_prompts():
 #generate summaries using models and prompts in Ollama and add them to the table
 def create_outputs():
     with Session(engine) as session:
-        
-        #creating lookup table's to link the tables
         models_table_data = session.exec(select(Models)).all()
-        #lookup table with {model_name:model_object} for using relationship attribute
-        #models_table_data_lookup = {m.model : m for m in models_table_data}
-
         prompts_table_data = session.exec(select(Prompts)).all()
-        #lookup table with {prompt: prompt_object}
-        #prompts_table_data_lookup = {p.prompt : p for p in prompts_table_data}
-        
+
         # add outputs data
         for prompt in prompts_table_data:
             for llm_model in models_table_data: 
@@ -51,6 +44,7 @@ def create_outputs():
                                                    models=llm_model,
                                                    prompts=prompt)
                 session.add(text_summarisation_entry)
+                print(f"Done: {llm_model.model}")
         session.commit()
 
 def select_model():
