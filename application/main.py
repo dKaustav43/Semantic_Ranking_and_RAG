@@ -63,11 +63,8 @@ def select_model():
                
                     
 def main():
-    #create_model_and_prompts()
-    # create_outputs()
-    model_table: list[object] = select_model()
-    print(model_table)
-    #now i can open a file and write to it. Or even to external applications.
+    create_model_and_prompts()
+    create_outputs()
 
 if __name__ == "__main__":
     main()
