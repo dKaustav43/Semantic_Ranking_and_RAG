@@ -20,9 +20,6 @@ def create_model_and_prompts():
             if not existing:
                 new_model_entry = Models(model=llm_model["model"],use=llm_model["use"])
                 session.add(new_model_entry)
-            else:
-                existing.use = llm_model["use"]
-                session.add(existing)
         session.commit()
 
         #add prompt_model data
