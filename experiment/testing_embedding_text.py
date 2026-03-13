@@ -140,7 +140,7 @@ def add_to_vector_db():
     except Exception as e:
         print(f"couldn't add to the database. error {e}")
 
-def query_collection(query:list[str]):
+def semantic_ranking(query:list[str]):
     client = chromadb.PersistentClient()
     collection = client.get_collection(name="experiment_chroma_vector_db", embedding_function = ollama_ef) # type: ignore
     result = collection.query(query_texts=query,
@@ -156,10 +156,35 @@ def query_collection(query:list[str]):
                     file.write(f"id:{ids} | distances:{distances} | metadatas:{metadatas}"+'\n')
     print("results writen to file experiment/semantic_outputs_chroma.txt")               
 
+def LLM_augment_prompt_generation(query:str):
+    #since I am using only three case studies I am putting in all the three as a part of my augement prompt.
+    #For larger database I will be inputing top_k results from Hybrid search retrieval.
+    
+    augment_prompt = f"""
+    Answer using ONLY the case studies below. 
+    Cite which case study supports each point and include the case study id. 
+
+    [Case studies] case_id = 1 : {text_1} + 
+    \n\n + case_id_2: {text_2} + 
+    \n\n + case_id_3 {text_3}
+
+    Question:{query}
+
+    """
+    with open("experiment/LLM_augment_generation.txt","a") as file:
+        response = ollama.chat(
+            model='llama3.1:8b',
+            messages=[{'role': 'user', 'content': augment_prompt}]
+        )
+        result = response['message']['content']
+        file.write(f"\n query : {query} \n\n  {result}")
+        print("The output is written to experiment/LLM_augment_generation.txt")
+    return result 
 
 def main():
-    query:str = "Any case study which has UK government department"
-    query_collection([query])
+    query:str = "Is there any case study which has international partners or businesses or similar? Do not summarise"
+    result = LLM_augment_prompt_generation(query)
+    print(result)
 
 if __name__ == "__main__":
     main()
