@@ -158,11 +158,8 @@ def query_collection(query:list[str]):
 
 
 def main():
-    query_1 = "Case study with A.I."
-    query_2 = "Rank in the order of case studies from HVMC"
-    query_3 = "Rank in the order of case studies from High value manufacturing catapults"
-    querys = [query_1,query_2,query_3]
-    query_collection(querys)
+    query:str = "Any case study which has UK government department"
+    query_collection([query])
 
 if __name__ == "__main__":
     main()
