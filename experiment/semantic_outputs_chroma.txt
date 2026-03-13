@@ -1,0 +1,18 @@
+
+Case study with A.I.
+
+id:2 | distances:0.4751157760620117 | metadatas:{'Title': 'Intelligent handling system design and integration', 'token_count_per': 530, 'Catapult': 'HVMC'}
+id:1 | distances:0.4901975989341736 | metadatas:{'token_count_per': 451, 'Catapult': 'Digital Catapult', 'Title': 'Accelerating AI innovation in the West of England creative industries'}
+id:3 | distances:0.5568854808807373 | metadatas:{'Catapult': 'HVMC', 'Title': 'Rethinking the bottle – sustainable design for toddlers', 'token_count_per': 709}
+
+Rank in the order of case studies from HVMC
+
+id:2 | distances:0.6587350368499756 | metadatas:{'Catapult': 'HVMC', 'Title': 'Intelligent handling system design and integration', 'token_count_per': 530}
+id:3 | distances:0.6879510283470154 | metadatas:{'Title': 'Rethinking the bottle – sustainable design for toddlers', 'token_count_per': 709, 'Catapult': 'HVMC'}
+id:1 | distances:0.7353955507278442 | metadatas:{'Title': 'Accelerating AI innovation in the West of England creative industries', 'Catapult': 'Digital Catapult', 'token_count_per': 451}
+
+Rank in the order of case studies from High value manufacturing catapults
+
+id:1 | distances:0.5775483846664429 | metadatas:{'Title': 'Accelerating AI innovation in the West of England creative industries', 'Catapult': 'Digital Catapult', 'token_count_per': 451}
+id:2 | distances:0.6134260892868042 | metadatas:{'token_count_per': 530, 'Title': 'Intelligent handling system design and integration', 'Catapult': 'HVMC'}
+id:3 | distances:0.6136060953140259 | metadatas:{'Title': 'Rethinking the bottle – sustainable design for toddlers', 'token_count_per': 709, 'Catapult': 'HVMC'}
