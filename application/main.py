@@ -2,7 +2,7 @@ from sqlmodel import Session, select
 import json
 from ollama import generate
 from modules.database import engine, create_db_and_tables
-from modules.models import Models, Prompts, Outputs, CaseStudyTexts
+from modules.models import Models, Outputs, CaseStudyTexts
 import re
 
 #Json_load
@@ -23,14 +23,6 @@ def create_model_and_prompts():
                 session.add(new_model_entry)
         session.commit()
 
-        #add prompt_model data
-        for text in texts_data_list:
-            existing = session.exec(select(Prompts).where(Prompts.prompt == text["prompt"])).one_or_none()
-            if not existing:
-                entry_prompt_text = Prompts(prompt=text["prompt"])
-                session.add(entry_prompt_text)
-        session.commit()
-
 def create_casestudy_texts():
 
     #creating session and adding data
@@ -46,17 +38,17 @@ def create_casestudy_texts():
 def create_outputs():
     with Session(engine) as session:
         models_table_data = session.exec(select(Models)).all()
-        prompts_table_data = session.exec(select(Prompts)).all()
+        texts_data_list = session.exec(select(CaseStudyTexts)).all()
 
         # add outputs data
-        for prompt in prompts_table_data:
+        for t in texts_data_list:
             for llm_model in models_table_data: 
-                existing = session.exec(select(Outputs).where(Outputs.model_id == llm_model.id).where(Outputs.prompt_id == prompt.id)).one_or_none()
+                existing = session.exec(select(Outputs).where(Outputs.model_id == llm_model.id).where(Outputs.text_id == t.id)).one_or_none()
                 if not existing:
-                    response = generate(llm_model.model,prompt.prompt)
+                    response = generate(llm_model.model,t.text)
                     text_summarisation_entry = Outputs(output=str(response),
                                                     models=llm_model,
-                                                    prompts=prompt)
+                                                    texts=t)
                     session.add(text_summarisation_entry)
                     print(f"Done: {llm_model.model}")
         session.commit()
@@ -70,10 +62,10 @@ def select_model():
                model_table.append(m)
      return model_table
 
-#Reading prompts table
+#Reading texts table
 def select_texts():
     with Session(engine) as session:
-        texts_first_entry = session.exec(select(Prompts)).first()
+        texts_first_entry = session.exec(select(CaseStudyTexts)).first()
         print(texts_first_entry)
     
 
@@ -87,7 +79,7 @@ def select_outputs():
         
         for o in outputs:
             with open("data/outputs.txt",'a') as file:
-                first_line = f"Reponse from {o.models.model} for prompt_{o.prompt_id}" # pyright: ignore[reportOptionalMemberAccess]
+                first_line = f"Reponse from {o.models.model} for casestudy_{o.text_id}" # pyright: ignore[reportOptionalMemberAccess]
                 output_edited = add_newlines_after_period(str(o.output))
                 file.write(first_line + '\n' + output_edited + '\n\n')
         print("outputs appended")
@@ -96,12 +88,12 @@ def select_outputs():
 def update_outputs():
      with Session(engine) as session:
         models_table_data = session.exec(select(Models)).all()
-        prompts_table_data = session.exec(select(Prompts)).all()
+        case_study_texts = session.exec(select(CaseStudyTexts)).all()
         
-        for prompt in prompts_table_data:
+        for t in case_study_texts:
             for llm_model in models_table_data: 
-                response = generate(llm_model.model,prompt.prompt)
-                outputs_table = session.exec(select(Outputs).where(Outputs.model_id == llm_model.id).where(Outputs.prompt_id == prompt.id)).one()
+                response = generate(llm_model.model,t.text)
+                outputs_table = session.exec(select(Outputs).where(Outputs.model_id == llm_model.id).where(Outputs.text_id == t.id)).one()
                 outputs_table.output = str(response.response) 
                 session.add(outputs_table)
                 print(f"Done: {llm_model.model}")
