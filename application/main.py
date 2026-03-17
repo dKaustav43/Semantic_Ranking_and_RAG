@@ -2,7 +2,7 @@ from sqlmodel import Session, select
 import json
 from ollama import generate
 from modules.database import engine, create_db_and_tables
-from modules.models import Models, Prompts, Outputs
+from modules.models import Models, Prompts, Outputs, CaseStudyTexts
 import re
 
 #Json_load
@@ -30,6 +30,17 @@ def create_model_and_prompts():
                 entry_prompt_text = Prompts(prompt=text["prompt"])
                 session.add(entry_prompt_text)
         session.commit()
+
+def create_casestudy_texts():
+
+    #creating session and adding data
+    with Session(engine) as session:
+        for text in texts_data_list:
+            existing = session.exec(select(CaseStudyTexts).where(CaseStudyTexts.text == text["text"])).one_or_none()
+            if not existing:
+                entry_text = CaseStudyTexts(text=text["text"])
+                session.add(entry_text)
+        session.commit() 
 
 #generate summaries using models and prompts in Ollama and add them to the table
 def create_outputs():
@@ -98,10 +109,12 @@ def update_outputs():
 
                     
 def main():
+    create_db_and_tables()
+    #create_casestudy_texts()
     #create_outputs()
     #update_outputs()
     #select_outputs()
-    select_texts()
+    #select_texts()
 
 if __name__ == "__main__":
     main()
