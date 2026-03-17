@@ -77,3 +77,19 @@ print(response.response)
 I downloaded two models from Ollama. One is Granite and the other is Llama. I feel the summarization done by Granite was much better that that done by Llama. 
 Granite also promises to use less RAM and be faster as it uses only 1B active weights rather than the whole of 7B as opposed to 8B by Llama.
 
+Feature - Integrating Chroma into applications
+
+1. Issue is that the prompt table has prompts which ask it to summarise the data. These are not prompts too, they have case study entries plus user query tailored to task summarisation. 
+    One of the fix, is to delete the table Prompts. Rename it to case study text entry or something and adjust the main.py code base. 
+    
+2. Add chroma with augmented prompt.
+
+3. No need to store user query or augmented prompt in sqlite database as these need to be updated soon and I don't need a log the user prompts in a new table as of now. I only need to be able to see the outputs and how they compare in this example project. I might need to store this in my other projects. 
+
+Feature - Sqlite FTS5 search
+1. Implementing this would be interesting ofcourse but I am not sure how useful it will be for this or my Catapult casestudy project.
+Firstly, I will have 500 case studies, all of which could in principle be fed to the LLM directly as my model has 128K token window. 
+Secondly, I have about 18-19 identifiers to sort the relevant case study for more specific queries. That itself is a huge bost before applying my search. 
+Thirdly, keyword search would not be as accurate in my opinion as it will be heavily baised towards the keyword I choose to input for a 
+particular query. 
+2. So implement this on an experiment basis only for trial and to get familiar. Use this in my real projects only if needed. 
