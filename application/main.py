@@ -8,8 +8,8 @@ import re
 #Json_load
 with open("data/llm_models.json", mode="r", encoding="utf-8") as read_file:
         llm_models_list = json.load(read_file)
-with open("data/text_and_prompts.json", mode="r", encoding="utf-8") as read_file:
-        prompts_data_list = json.load(read_file)
+with open("data/case_Study_texts.json", mode="r", encoding="utf-8") as read_file:
+        texts_data_list = json.load(read_file)
 
 #add data to the tables
 def create_model_and_prompts():
@@ -24,10 +24,10 @@ def create_model_and_prompts():
         session.commit()
 
         #add prompt_model data
-        for prompt_text in prompts_data_list:
-            existing = session.exec(select(Prompts).where(Prompts.prompt == prompt_text["prompt"])).one_or_none()
+        for text in texts_data_list:
+            existing = session.exec(select(Prompts).where(Prompts.prompt == text["prompt"])).one_or_none()
             if not existing:
-                entry_prompt_text = Prompts(prompt=prompt_text["prompt"])
+                entry_prompt_text = Prompts(prompt=text["prompt"])
                 session.add(entry_prompt_text)
         session.commit()
 
@@ -58,6 +58,13 @@ def select_model():
           for m in models:
                model_table.append(m)
      return model_table
+
+#Reading prompts table
+def select_texts():
+    with Session(engine) as session:
+        texts_first_entry = session.exec(select(Prompts)).first()
+        print(texts_first_entry)
+    
 
 #Read outputs and write to a .txt file
 def select_outputs():
@@ -93,7 +100,8 @@ def update_outputs():
 def main():
     #create_outputs()
     #update_outputs()
-    select_outputs()
+    #select_outputs()
+    select_texts()
 
 if __name__ == "__main__":
     main()
