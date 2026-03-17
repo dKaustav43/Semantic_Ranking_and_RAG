@@ -14,6 +14,12 @@ class Prompts(SQLModel, table=True):
 
     outputs: list["Outputs"] = Relationship(back_populates="prompts")
 
+class CaseStudyTexts(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    text: str
+
+    outputs: list["Outputs"] = Relationship(back_populates="prompts")
+
 class Outputs(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     output: str | None = Field(default=None)
