@@ -70,6 +70,8 @@ def select_model():
      with Session(engine) as session:
           models = session.exec(select(Models)).all()
           model_table = []
+          model_1 = models[0]
+          print(type([str(model_1.id)]))
           for m in models:
                model_table.append(m)
      return model_table
@@ -116,7 +118,8 @@ def main():
     create_db_and_tables()
     #create_casestudy_texts()
     #create_outputs()
-    update_outputs()
+    #update_outputs()
+    select_model()
     #select_outputs()
     #select_texts()
 
