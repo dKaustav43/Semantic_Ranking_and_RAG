@@ -5,3 +5,5 @@ __pycache__
 *.egg-info/
 experiment.py
 .DS_Store
+notes.md
+notes_chromadb_integration.md
