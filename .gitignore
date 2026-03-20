@@ -7,3 +7,4 @@ experiment.py
 .DS_Store
 notes.md
 notes_chromadb_integration.md
+.mypy_cache
