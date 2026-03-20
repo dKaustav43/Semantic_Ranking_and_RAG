@@ -86,6 +86,10 @@ Feature - Integrating Chroma into applications
 
 3. No need to store user query or augmented prompt in sqlite database as these need to be updated soon and I don't need a log the user prompts in a new table as of now. I only need to be able to see the outputs and how they compare in this example project. I might need to store this in my other projects. 
 
+4. The case study texts can be added to the chroma datbase itself. 
+
+5. The RAG is slow. I need to speed it up. There must be a software overhead here. 
+
 Feature - Sqlite FTS5 search
 1. Implementing this would be interesting ofcourse but I am not sure how useful it will be for this or my Catapult casestudy project.
 Firstly, I will have 500 case studies, all of which could in principle be fed to the LLM directly as my model has 128K token window. 

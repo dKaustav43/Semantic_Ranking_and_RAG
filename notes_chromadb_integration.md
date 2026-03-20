@@ -45,3 +45,7 @@ output = model.encode(
 dense_vector   = output["dense_vecs"][0]        # shape: (1024,)
 sparse_weights = output["lexical_weights"][0]   # dict: {token_id: weight}
 ```
+
+Adding feature - 
+
+Ideally I can add the case study text in chromadb documents and that would enable a proper retrival from a single database and doesn't need sqlite database in some sense. 
