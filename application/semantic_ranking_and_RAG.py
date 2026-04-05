@@ -5,6 +5,7 @@ from modules.database import engine
 from modules.models import CaseStudyTexts
 import ollama 
 from typing import Any
+import time
 
 embedding_model_name = "bge-m3"
 
@@ -55,7 +56,13 @@ def LLM_augment_prompt_generation(user_query_for_augment_prompt:str, LLM_model:s
     """
     response = ollama.chat(
         model= LLM_model,
-        messages=[{'role': 'user', 'content': augment_prompt}]
+        messages=[{'role': 'user', 'content': augment_prompt}],
+        options = {
+            'num_ctx': 12288,
+            'num_predict': 256,
+            'num_gpu' : 99,
+            'num_thread': 8
+        }
         )
     result = response['message']['content']
     print(f"\n query : {user_query_for_augment_prompt} \n\n Answer: {result}")
@@ -63,9 +70,12 @@ def LLM_augment_prompt_generation(user_query_for_augment_prompt:str, LLM_model:s
 def main():
     #   query = ["Is there a case study where the Catapult has worked with the NHS?", "Circular Economy"]
     #   semantic_ranking(user_query=[query[1]],number_of_results=4)
-
-    rag_query = "Describe in a sentence the case studies present with their Ids?"
+    start_time = time.perf_counter()
+    rag_query = "Is there case study where atleast one UK government department is named other than UKRI?"
     LLM_augment_prompt_generation(rag_query)
+    end_time = time.perf_counter()
+    duration = end_time - start_time
+    print(f"\n--- Response received in {duration:.2f} seconds ---")
 
 
 if __name__ == "__main__":
